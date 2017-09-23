@@ -63,11 +63,7 @@ class Converter:
             ltr2 += 2
 
         dec_changed = str(dec_changed).strip('[]')
-        dec_changed = re.sub(r'\(', '', dec_changed)  # (
-        dec_changed = re.sub(r'\)', '', dec_changed)  # )
-        dec_changed = re.sub(r'\'', '', dec_changed)  # '
-        dec_changed = re.sub(r',', '', dec_changed)  # ,
-        dec_changed = re.sub(r' ', '', dec_changed)  # space
+        dec_changed = re.sub(r'\(|\)|\'|,| ', '', dec_changed)
 
         if self.switch == 1:
             root.clipboard_clear()
